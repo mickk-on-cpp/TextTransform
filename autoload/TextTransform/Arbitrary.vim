@@ -181,7 +181,7 @@ function! s:Transform( count, algorithm, selectionModes, onError, mapMode, chang
 	    silent! normal! gvy
 	else
 	    let l:isTextObject = 1
-	    silent! execute 'normal y' . l:count . l:SelectionMode
+	    silent! execute 'normal! y' . l:count . l:SelectionMode
 
 	    " Note: After (successfully) yanking the text object, still
 	    " establish a visual selection of the yanked text;
@@ -245,7 +245,7 @@ function! s:Transform( count, algorithm, selectionModes, onError, mapMode, chang
 		" keep the cursor one past the end.
 		let l:save_virtualedit = &virtualedit
 		set virtualedit=onemore
-		    silent execute 'normal "_d' . l:count . l:SelectionMode
+		    silent execute 'normal! "_d' . l:count . l:SelectionMode
 		    " The paste command leaves the cursor at the end of the
 		    " pasted text, but the behavior of built-in transformations
 		    " is to place the cursor at the beginning of the transformed
